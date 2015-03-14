@@ -45,6 +45,7 @@ void	_AKUEnterFullscreenModeFunc		();
 void	_AKUExitFullscreenModeFunc		();
 void 	_AKUSetWindowDisplayMode		(const MOAIVideoModesMgr::Mode& mode);
 void 	_AKUResizeWindow				(int width, int height);
+void	_AKUOpenWindowFunc				(const char* title, int width, int height);
 void	_AKUOpenWindowFunc				( const char* title, int width, int height, bool borderlessWindow );
 
 //----------------------------------------------------------------//
@@ -92,6 +93,12 @@ void _AKUResizeWindow(int width, int height) {
 }
 
 //----------------------------------------------------------------//
+
+// TODO: temp fix
+void _AKUOpenWindowFunc(const char* title, int width, int height) {
+	_AKUOpenWindowFunc(title, width, height, false);
+}
+
 void _AKUOpenWindowFunc ( const char* title, int width, int height, bool borderlessWindow ) {
 	
 	if ( !sWindow ) {
@@ -257,7 +264,7 @@ void MainLoop () {
 					
 				case SDL_MOUSEWHEEL:
 
-					AKUEnqueueWheelEvent ( InputDeviceID::DEVICE, InputSensorID::MOUSE_WHEEL, sdlEvent.wheel.y ); // Note: we are ignoring the x wheel event
+					AKUEnqueueWheelEvent ( InputDeviceID::DEVICE, InputSensorID::MOUSE_WHEEL, (float)sdlEvent.wheel.y ); // Note: we are ignoring the x wheel event
 					break;
 
 				case SDL_WINDOWEVENT:
