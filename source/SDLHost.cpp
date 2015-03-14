@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <moai-core/MOAIVideoModesMgr.h>
+#include "MOAIVideoModesMgr.h"
 #include <moai-core/host.h>
 #include <host-modules/aku_modules.h>
 #include <host-sdl/SDLHost.h>
@@ -172,6 +172,8 @@ void Init ( int argc, char** argv ) {
 
 	AKUSetInputConfigurationName ( "SDL" );
 
+	// TODO: maybe we could move this code somewhere else
+	REGISTER_LUA_CLASS(MOAIVideoModesMgr)
 	MOAIVideoModesMgr::Get().SetWindowModeFunc(_AKUSetWindowDisplayMode);
 	QueryVideoModes();
 

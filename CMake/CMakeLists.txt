@@ -6,6 +6,7 @@ set (HOST_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/..")
 set (HOST_SRC
 	${HOST_ROOT}/source/SDLHost.cpp
 	${HOST_ROOT}/source/SDLHostMain.cpp
+	${HOST_ROOT}/source/MOAIVideoModesMgr.cpp
 )
 
 set (HOST_INCLUDES
